@@ -1,0 +1,57 @@
+{% macro displayHeadlines(article_list) %}
+  {% for article in article_list %}
+    <li>
+      <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 well article-image" style="background-image:url({{ article.urlToImage }});background-size:100% 100%;overflow:auto;height:40vh;">
+        <div class="article">
+          <a href="{{ article.url }}">
+            <h1>{{  article.title }}</h1>
+            <h2>{{article.name}}</h2>
+            <h4>{{article.description}}</h4>
+            <h5>{{article.publishedAt}}</h5>
+            <h6>{{article.author}}</h6>
+            <h4>{{article.urlToImage}}</h4>
+
+          </a>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+{% endmacro %}
+
+{% macro displaySources(source_list) %}
+  {% for source in source_list %}
+
+    <li>
+      <div class="col-xs-12 col-sm-4 col-md-3 col-lg-4 well source">
+        <span class="label label-default">
+          Language:{{ source.country }}
+        </span>
+        <div class="source_url">
+          <p>
+            {{ source.name }}
+          </p>
+          <h1>{{source.description}}</h1>
+          <div class="middle">
+            <div class="text">
+              <a href="/source/{{ source.url }}">Visit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+{% endmacro %}
+
+{% macro displaySourcesClicked(source_list) %}
+  {% for source in source_list %}
+    <li>
+      <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 well news" style="overflow:auto;height:40vh;">
+        <a href="{{source.url}}">{{sources.name}}</a>
+
+        <b>NEWS DESCRIPTION</b>
+        <p>{{sources.description}}
+        </div>
+
+      </li>
+    {% endfor %}
+  {% endmacro %}

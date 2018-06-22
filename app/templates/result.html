@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% block content %}
+  <div>a<p>b<p></div>
+      {{ macro.displaySourcesClicked(result)}}
+
+ {% endblock %}

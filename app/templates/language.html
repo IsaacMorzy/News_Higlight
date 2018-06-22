@@ -1,0 +1,20 @@
+{% import 'macros.html' as macro%}
+{% extends 'base.html' %}
+{% block styles %}
+  {{ super() }}
+  <link rel='stylesheet' href="{{url_for('static',filename='css/language.css')}}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+{% endblock %}
+{% block content %}
+  <div class="container">
+
+    <div class="row center-block">
+      <hr>
+      <ul>
+        {{ macro.displaySources(source_req)}}
+      </ul>
+
+    </div>
+
+  </div>
+{% endblock %}

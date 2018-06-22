@@ -1,0 +1,10 @@
+{% import 'macros.html' as macro %}
+{% extends 'base.html' %}
+{% block content %}
+  <h3>HEADLINES</h3>
+  <ul>
+    {{ macro.displayHeadlines(headline)}}
+
+  </ul>
+{% endblock %}
+
