@@ -1,2 +1,5 @@
 *.pyc
-instance
+instance/
+.vscode
+start.sh
+virtual/
