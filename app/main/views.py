@@ -2,8 +2,9 @@ from flask import render_template,redirect,url_for,request
 from . import main
 from ..requests import get_headline_articles,get_news_sources,search_language_based,get_headline_search,get_all_source_result
 from .forms import LanguageForm
-from ..models import Article
+from ..models import Article,Source,News
 import json
+
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -14,12 +15,16 @@ def index():
     form = LanguageForm(request.form)
     show_category = request.args.get('cat')
     hide_keyword = request.args.get('item_h')
-    source_list = get_news_sources()
+    general = get_news_sources('general')
+    technology = get_news_sources('technology')
+    business = get_news_sources ('business')
+
+
     if request.method=='POST' and form.validate():
         language_selected = form.language.data
         return redirect(url_for('.lang',lan=language_selected))
     else:
-        return render_template('index.html',title=title,select_box = form ,sources=source_list)
+        return render_template('index.html',title=title,select_box = form ,general=general,technology=technology,business=business)
 
 
 @main.route('/headlines/<category>')
